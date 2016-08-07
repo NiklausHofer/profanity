@@ -1618,7 +1618,8 @@ static struct cmd_t command_defs[] =
             { "untrust",    cmd_otr_untrust },
             { "secret",     cmd_otr_secret },
             { "question",   cmd_otr_question },
-            { "answer",     cmd_otr_answer })
+            { "answer",     cmd_otr_answer },
+            { "striphtml",  cmd_otr_striphtml })
         CMD_NOMAINFUNC
         CMD_TAGS(
             CMD_TAG_CHAT,
@@ -1635,7 +1636,8 @@ static struct cmd_t command_defs[] =
             "/otr answer <answer>",
             "/otr policy manual|opportunistic|always [<contact>]",
             "/otr log on|off|redact",
-            "/otr char <char>")
+            "/otr char <char>",
+            "/otr striphtml on|off")
         CMD_DESC(
             "Off The Record (OTR) commands to manage keys, and perform OTR encryption during chat sessions.")
         CMD_ARGS(
@@ -1668,7 +1670,8 @@ static struct cmd_t command_defs[] =
             "/otr theirfp",
             "/otr question \"What is the name of my rabbit?\" fiffi",
             "/otr end",
-            "/otr char *")
+            "/otr char *",
+            "/otr striphtml on")
     },
 
     { "/outtype",

@@ -1920,7 +1920,7 @@ cons_show_otr_prefs(void)
     }
     prefs_free_string(log_value);
 
-    gboolean striphtml = prefs_get_bolean(PREF_OTR_STRIPHTML);
+    gboolean striphtml = prefs_get_boolean(PREF_OTR_STRIPHTML);
     if (striphtml)
         cons_show("HTML Stripping of OTR messages (/otr striphtml)  : ON");
     else
