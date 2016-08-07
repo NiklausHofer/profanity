@@ -163,10 +163,10 @@ pgp_unittest_sources = \
 	tests/unittests/pgp/stub_gpg.c
 
 otr3_sources = \
-	src/otr/otrlib.h src/otr/otrlibv3.c src/otr/otr.h src/otr/otr.c
+	src/otr/otrlib.h src/otr/otrlibv3.c src/otr/otr.h src/otr/otr.c src/htmlstrip.c src/htmlstrip.h
 
 otr4_sources = \
-	src/otr/otrlib.h src/otr/otrlibv4.c src/otr/otr.h src/otr/otr.c
+	src/otr/otrlib.h src/otr/otrlibv4.c src/otr/otr.h src/otr/otr.c src/htmlstrip.c src/htmlstrip.h
 
 if BUILD_PYTHON_API
 core_sources += $(python_sources)

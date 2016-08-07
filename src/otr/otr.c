@@ -39,6 +39,7 @@
 #include <glib.h>
 
 #include "log.h"
+#include "htmlstrip.h"
 #include "config/preferences.h"
 #include "config/files.h"
 #include "otr/otr.h"
@@ -781,7 +782,9 @@ otr_decrypt_message(const char *const from, const char *const message, gboolean 
         if (g_str_has_prefix(message, "?OTR:")) {
             *decrypted = TRUE;
         }
-        return newmessage;
+        //return newmessage;
+        char * stripped_message = htmlstrip( newmessage );
+        return stripped_message;
 
     // normal non OTR message
     } else {
