@@ -782,9 +782,13 @@ otr_decrypt_message(const char *const from, const char *const message, gboolean 
         if (g_str_has_prefix(message, "?OTR:")) {
             *decrypted = TRUE;
         }
-        //return newmessage;
-        char * stripped_message = htmlstrip( newmessage );
-        return stripped_message;
+        if (prefs_get_boolean(PREF_OTR_STRIPHTML))
+        {
+          char * stripped_message = htmlstrip( newmessage );
+          //free( newmessage );
+          return stripped_message;
+        } else
+          return newmessage;
 
     // normal non OTR message
     } else {
