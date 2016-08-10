@@ -1257,6 +1257,7 @@ _get_group(preference_t pref)
         case PREF_OTR_LOG:
         case PREF_OTR_POLICY:
         case PREF_OTR_STRIPHTML:
+        case PREF_OTR_ENCODEHTML:
             return PREF_GROUP_OTR;
         case PREF_PGP_LOG:
             return PREF_GROUP_PGP;
@@ -1368,6 +1369,8 @@ _get_key(preference_t pref)
             return "log";
         case PREF_OTR_STRIPHTML:
             return "striphtml";
+        case PREF_OTR_ENCODEHTML:
+            return "encodehtml";
         case PREF_OTR_POLICY:
             return "policy";
         case PREF_LOG_ROTATE:
@@ -1514,7 +1517,7 @@ _get_default_boolean(preference_t pref)
             return TRUE;
         default:
             return FALSE;
-        // includes PREF_OTR_STRIPHTML
+        // includes PREF_OTR_STRIPHTML, ENCODEHTML
     }
 }
 

@@ -191,6 +191,7 @@ gboolean cmd_otr_secret(ProfWin *window, const char *const command, gchar **args
 gboolean cmd_otr_question(ProfWin *window, const char *const command, gchar **args);
 gboolean cmd_otr_answer(ProfWin *window, const char *const command, gchar **args);
 gboolean cmd_otr_striphtml(ProfWin *window, const char *const command, gchar **args);
+gboolean cmd_otr_encodehtml(ProfWin *window, const char *const command, gchar **args);
 
 gboolean cmd_wins(ProfWin *window, const char *const command, gchar **args);
 gboolean cmd_wins_unread(ProfWin *window, const char *const command, gchar **args);

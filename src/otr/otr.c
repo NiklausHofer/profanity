@@ -729,7 +729,15 @@ char*
 otr_encrypt_message(const char *const to, const char *const message)
 {
     char *newmessage = NULL;
-    gcry_error_t err = otrlib_encrypt_message(user_state, &ops, jid, to, message, &newmessage);
+    gcry_error_t err;
+    // HTML encode message if option to do so is set
+    if (prefs_get_boolean(PREF_OTR_ENCODEHTML))
+    {
+      const char * preparedmessage = htmlencode( message );
+      err = otrlib_encrypt_message(user_state, &ops, jid, to, preparedmessage, &newmessage);
+      log_debug("HTML encoded message is: %s\n", preparedmessage);
+    } else
+      err = otrlib_encrypt_message(user_state, &ops, jid, to, message, &newmessage);
 
     if (err != 0) {
         return NULL;

@@ -2,6 +2,6 @@
 #define HTMLSTRIP_H
 
 char * htmlstrip( char * );
-char * htmlencode( char * );
+char * htmlencode( const char *const );
 
 #endif

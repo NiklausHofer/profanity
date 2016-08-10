@@ -1926,6 +1926,12 @@ cons_show_otr_prefs(void)
     else
         cons_show("HTML Stripping of OTR messages (/otr striphtml)  : OFF");
 
+    gboolean encodehtml = prefs_get_boolean(PREF_OTR_ENCODEHTML);
+    if (encodehtml)
+        cons_show("HTML encoding of outgoing OTR messages (/otr encodehtml)  : ON");
+    else
+        cons_show("HTML encoding of outgoing OTR messages (/otr encodehtml)  : OFF");
+
     char ch = prefs_get_otr_char();
     cons_show("OTR char (/otr char)     : %c", ch);
 

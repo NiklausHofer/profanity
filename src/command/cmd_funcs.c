@@ -6446,6 +6446,18 @@ cmd_otr_striphtml(ProfWin *window, const char *const command, gchar **args)
 }
 
 gboolean
+cmd_otr_encodehtml(ProfWin *window, const char *const command, gchar **args)
+{
+#ifdef HAVE_LIBOTR
+    _cmd_set_boolean_preference(args[1], command, "Outgoing OTR messages will be HTML encoded before sending.", PREF_OTR_ENCODEHTML);
+    return TRUE;
+#else
+    cons_show("This version of Profanity has not been built with OTR support enabled");
+    return TRUE;
+#endif
+}
+
+gboolean
 cmd_otr_libver(ProfWin *window, const char *const command, gchar **args)
 {
 #ifdef HAVE_LIBOTR

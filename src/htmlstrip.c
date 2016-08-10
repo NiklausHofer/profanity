@@ -36,7 +36,8 @@ char * replace( char * str, char * regexp, char * replacement )
   // prepare the new string
   char * new_string = (char*)malloc(new_str_size);
   char * new_string_pos = new_string;
-  for( int i=0; i<new_str_size; i++)
+  int i;
+  for( i=0; i<new_str_size; i++)
     new_string[i] = '\0';
 
   // Actual replacement work
@@ -74,7 +75,8 @@ char * htmlstrip( char * text )
   char * new_str = malloc( strlen(text) * sizeof(char) );
   strcpy( new_str, text );
 
-  for( int i = 0; i<7; i++ )
+  int i;
+  for( i = 0; i<7; i++ )
   {
     char * tmp_str = replace( new_str, regex_pt, replacement_pt );
     free( new_str );
@@ -86,7 +88,7 @@ char * htmlstrip( char * text )
   return new_str;
 }
 
-char * htmlencode( char * text )
+char * htmlencode( const char *const text )
 {
   // The 5 special chars of XML and newlines
   char regexes[] = "&\0>\0<\0\"\0'\0\n";
@@ -99,7 +101,8 @@ char * htmlencode( char * text )
   char * new_str = malloc( strlen(text) * sizeof(char) );
   strcpy( new_str, text );
 
-  for( int i = 0; i<6; i++ )
+  int i;
+  for( i = 0; i<6; i++ )
   {
     char * tmp_str = replace( new_str, regex_pt, replacement_pt );
     free( new_str );
